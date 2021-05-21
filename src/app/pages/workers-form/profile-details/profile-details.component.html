@@ -1,0 +1,148 @@
+<div class="template-table template-table2 p-0">
+  <div class="general-box">
+    <div class="Equipment-contmain">
+      <form nz-form [formGroup]="profileDetailForm" id="" class="login-form" [autocomplete]="'off'">
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Worker ID</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <!-- <mat-label>Equipment Template ID</mat-label> -->
+              <input formControlName="_workerID" type="text" [readonly]="true" [disabled]="true" matInput
+                placeholder="AHDJA83293A" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Name</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="name" type="text" matInput placeholder="John Doe" />
+            </mat-form-field>
+            <mat-error *ngIf="val?.name?.errors?.required">Please enter a valid name</mat-error>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Email</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="email" type="text" email matInput placeholder="john@megapetro.com" />
+            </mat-form-field>
+            <mat-error *ngIf="val?.email?.errors?.required">Please enter email address
+            </mat-error>
+            <mat-error *ngIf="val?.email?.errors?.email && !val?.Email?.errors?.required">Please enter a valid email
+              address</mat-error>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox atrributselect">
+          <div class="Equipment-cont">
+            <h5>Phone Number</h5>
+          </div>
+          <div class="Equipment-form">
+            <div class="permit-address">
+              <mat-form-field appearance="fill">
+                <mat-select formControlName="country">
+                  <mat-option *ngFor="let item of countryData" [value]="item.name" (click)="getCountryCode(item)">
+                    <img src="{{item.flag}}" width="15%;" height="15%;" /> {{' ' + item.name +' (' +
+                    item.callingCodes[0] +')'}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <div class="country-block">
+                <mat-form-field [floatLabel]="'never'" appearance="none" appearance="fill">
+                  <span matPrefix> {{countryCode}} </span>
+                  <input type="text" matInput phoneMask [preValue]="profileDetailForm.value.phone"
+                    [phoneControl]="profileDetailForm.controls['phone']" maxlength="11" [id]="'phone'"
+                    autocomplete="off" formControlName="phone" placeholder="Phone No" />
+                </mat-form-field>
+              </div>
+              <!-- <mat-error *ngIf="val.phone.errors">Please provide valid Phone no!</mat-error> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Country Code</h5>
+          </div>
+          <div class="Equipment-form">
+            <div class="permit-address country-code">
+
+
+
+            </div>
+          </div>
+        </div> -->
+
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Adress</h5>
+          </div>
+          <div class="Equipment-form">
+            <div class="permit-address">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="city" type="text" matInput placeholder="city" autocomplete="disabled" />
+              </mat-form-field>
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="street" type="text" matInput placeholder="street" autocomplete="disabled" />
+              </mat-form-field>
+              <div class="mat-filed">
+                <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                  <input type="text" matInput formControlName="zip" numbersOnly maxlength="6" minlength="6"
+                    autocomplete="disabled" placeholder="zip" />
+                </mat-form-field>
+                <!-- <mat-error *ngIf="val?.zip?.errors?.required">Required ZipCode!</mat-error>
+                <mat-error *ngIf="val?.zip?.errors?.minlength || val?.zip?.errors?.maxlength">Valid ZipCode!</mat-error> -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="Equipment-contbox atrributselect">
+          <div class="Equipment-cont">
+            <h5>Permit to work on assets</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none">
+              <mat-chip-list #chipModeList aria-label="Assets Name">
+                <mat-chip *ngFor="let permitToWork of val.permitToWork.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(permitToWork, 'permitToWork')">
+                  {{permitToWork}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="New category..." #categoryInput [matAutocomplete]="auto"
+                  [matChipInputFor]="chipModeList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'permitToWork'); $event.input.value = ''">
+              </mat-chip-list>
+              <mat-autocomplete #auto="matAutocomplete"
+                (optionSelected)="selected($event.option.value, 'permitToWork')">
+                <mat-option *ngFor="let item of permitToWorkArray" [value]="item.value">
+                  {{item.label}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="general-btnbox">
+    <div class="general-btn">
+      <button mat-button type="button" (click)="saveWorkerDetail()">SAVE</button>
+      <button mat-button type="button" (click)="reset()">RESET</button>
+    </div>
+  </div>
+</div>

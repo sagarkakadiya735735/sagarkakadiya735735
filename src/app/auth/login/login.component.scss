@@ -1,0 +1,186 @@
+/* -------------------------------------
+login page
+------------------------------------- */
+body {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.login-logo {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-login-header {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: #424a52;
+  padding: 16px 0;
+}
+.login-logo h5 {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-family: circular-medium;
+}
+.main-box {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 490px;
+  margin: 0 auto;
+  min-height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+.login-boxtitle h2 {
+  font-size: 24px;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  margin-bottom: 60px;
+  text-align: center;
+  font-family: circular-bold;
+  color: #20253a;
+  margin-top: 15px;
+}
+.login-mainbox {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  // box-shadow: 0px 2px 4px #00000005;
+  border-radius: 20px;
+  min-height: 300px;
+  padding: 30px;
+}
+.login-boxform {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.login-boxform mat-form-field {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 55px;
+  margin-bottom: 20px;
+}
+.login-btn {
+  position: relative;
+  display: block;
+  width: 155px;
+  background-color: #e60c2e !important;
+  color: #fff;
+  font-family: circular-book;
+  border-radius: 8px;
+  height: 46px;
+  letter-spacing: 0.5px;
+  transition: 0.5s all ease;
+}
+.login-btn2 {
+  background-color: #424a52 !important;
+}
+.mat-error {
+  display: block;
+  margin-top: 15px;
+}
+:host::ng-deep .mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  height: 50px;
+  width: 100%;
+  border: 1px solid #d3d3d3;
+  padding: 14px 10px;
+  border-radius: 3px;
+}
+:host::ng-deep .error-border .mat-form-field-infix {
+  border-color: #e60c2e;
+}
+
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+// .input-box{
+//     margin-bottom: 35px;
+//   label {
+//     display: block;
+//     width: 100%;
+//     font-size: 15px;
+//     line-height: 24px;
+//     letter-spacing: 0.3px;
+//     color: #8B8B8B;
+//     margin-bottom: 5px;
+//     font-family: circular-book;
+//   }
+//   input {
+//     position: relative;
+//     display: block;
+//     width: 100%;
+//     border: 1px solid #D3D3D3;
+//     border-radius: 3px;
+//     font-size: 16px;
+//     line-height: 22px;
+//     color: #20253A;
+//     letter-spacing: 0.5px;
+//     border-radius: 3px;
+//     height: 50px;
+//     padding: 10px 20px;
+//     transition: 0.5s all ease;
+//   }
+//   .empty-input{
+//     border-color: #E60C2E;
+//     transition: 0.5s all ease;
+//   }
+// }
+.logo {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.loginboxes {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.signup-cont {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 0%;
+  bottom: -34%;
+  p {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    text-align: center;
+    display: block;
+    color: #8b8b8b;
+    text-decoration: none;
+    font-family: circular-book;
+    margin: 0;
+    a {
+      font-family: circular-bold;
+      text-decoration: none;
+      color: #20253a;
+    }
+  }
+}
+.error {
+  color: #e60c2e;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  display: block;
+  margin-top: 5px;
+}

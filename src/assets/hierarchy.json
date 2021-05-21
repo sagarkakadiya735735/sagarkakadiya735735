@@ -1,0 +1,59 @@
+{
+  "org": "Mega Petro",
+  "orgID": "mega123",
+  "plant": "mega-dallas",
+  "plantID": "dallas-frisco-plant",
+  "floc": [
+      {
+          "seq": 1,
+          "name": "EastWing",
+          "status": "active",
+          "_flocId": "orgId-plantId-floc-seq",
+          "timestamp": "time-stamp-here",
+          "area": [
+              {
+                  "seq": 1,
+                  "name": "Column A",
+                  "status": "active",
+                  "_assetId": "orgId-plantId-floc-seq-area-seq",
+                  "timestamp": "time-stamp-here"
+              },
+              {
+                  "seq": 2,
+                  "name": "Column B",
+                  "status": "active",
+                  "_assetId": "orgId-plantId-floc-seq-area-seq",
+                  "timestamp": "time-stamp-here"
+              },
+              {
+                  "seq": 3,
+                  "name": "Debutenizer",
+                  "status": "active",
+                  "_assetId": "orgId-plantId-floc-seq-area-seq",
+                  "timestamp": "time-stamp-here"
+              },
+              {
+                  "seq": 4,
+                  "name": "Energy room",
+                  "status": "active",
+                  "_assetId": "orgId-plantId-floc-seq-area-seq",
+                  "timestamp": "time-stamp-here"
+              },
+              {
+                  "seq": 5,
+                  "name": "Office room",
+                  "status": "active",
+                  "_assetId": "orgId-plantId-floc-seq-area-seq",
+                  "timestamp": "time-stamp-here"
+              }
+          ]
+      },
+      {
+          "seq": 2,
+          "name": "WestWing",
+          "status": "active",
+          "_flocId": "mega123-dallas-frisco-plant-floc-2",
+          "timestamp": "time-stamp-here"
+      }
+  ]
+}

@@ -1,0 +1,214 @@
+<div class="template-box">
+  <div class="template-header">
+    <div class="template-headertitle">
+      <h5>Assets</h5>
+    </div>
+  </div>
+  <div class="wingcolumn" *ngIf="isAssestId">
+    <div class="wing-icon" [routerLink]="['/assets']">
+      <img src="../../../../assets/images/youtube.svg" class="img-fluid" alt="" />
+    </div>
+    <div class="wing-cont">
+      <p>
+        {{ assetsData?.flocName }}
+        <span><img src="../../../../assets/images/cheveron-right.svg" class="img-fluid" alt="" /></span>
+        {{ assetsData?.areaName }}
+        <span><img src="../../../../assets/images/cheveron-right.svg" class="img-fluid" alt="" /></span>
+        {{ assetsData?.assetName }}
+      </p>
+    </div>
+  </div>
+
+  <div class="officepump-box">
+    <div class="officepump-sidebar assets-sidebar">
+      <div class="assets-menu" *ngIf="!isAssestId">
+        <mat-accordion>
+          <ul class="grantparentbox">
+            <li *ngFor="let wing of nestedBar?.floc; let i = index;">
+              <mat-expansion-panel  hideToggle [expanded]="i == sidebarSelected?.i?.index">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <button type="button" (click)="sidebarSelected.j.index = null">
+                      <span>
+                        <span class="img-span">
+                          <img src="../../../../assets/images/white-cheveron.png" class="img-fluid" alt="" /></span>
+                        {{ wing?.name }}
+                      </span>
+                      <span *ngIf="wing?.area">
+                        <span class="material-icons" [matMenuTriggerFor]="beforeMenu"
+                          onclick="window.event.cancelBubble = true;"> more_vert </span>
+                        <mat-menu #beforeMenu="matMenu" xPosition="before">
+                          <button mat-menu-item [disabled]="wing?.area.length > 0"
+                            (click)="addNameDialog(wing?.name, 'addLayer1',i,'',true,'Assets')">Rename</button>
+                        </mat-menu>
+                      </span>
+                    </button>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="assets-menu">
+                  <mat-accordion>
+                    <ul class="parentbox">
+                      <li *ngFor="let col of wing?.area; let j = index">
+                       
+                        <mat-expansion-panel class="assets" hideToggle [expanded]="j == sidebarSelected?.j?.index">
+                          <mat-expansion-panel-header>
+                            <mat-panel-title>
+                              <button type="button" (click)="getPumps(col, i, j)" class="parent-button">
+                                <span>
+                                  <span class="img-span">
+                                    <img src="../../../../assets/images/white-cheveron.png" class="img-fluid" alt="" />
+                                  </span>
+                                  <span *ngIf="col?.name.length <= 18"> {{ col?.name}}</span>
+                                  <span *ngIf="col?.name.length > 18"> {{ col?.name?.slice(0, 18) + '...'}}</span>
+                                </span>
+
+                                <span>
+                                  <span class="material-icons" [matMenuTriggerFor]="beforeMenu"
+                                    onclick="window.event.cancelBubble = true;"> more_vert
+                                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                      <button mat-menu-item [disabled]="col?.area"
+                                        (click)="addNameDialog(col?.name, 'addLayer2',i,j,true,'Assets')">Rename</button>
+                                    </mat-menu>
+                                  </span>
+                                </span>
+                              </button>
+                            </mat-panel-title>
+                          </mat-expansion-panel-header>
+
+                          <div class="assets-menu">
+                            <ul [class]="col?.area ? 'child-box' : 'child-box emptyDiv'">
+                              <li *ngFor="let pump of col?.area; let k = index">
+                                <button type="button" (click)="assetChecked(pump, i, j, k)">
+                                  <span *ngIf="pump?.assetName.length <= 18"> {{ pump?.assetName}}</span>
+                                  <span *ngIf="pump?.assetName.length > 18"> {{ pump?.assetName?.slice(0, 18) + '...'
+                                    }}</span>
+                                  <!-- <span class="material-icons"> more_vert</span> -->
+                                </button>
+                              </li>
+                              <li class="last-child">
+                                <button type="button" (click)="addNameDialog(null, 'addLayer3', i, j,false,'Assets')">
+                                  <span><span class="material-icons img-span">
+                                      add
+                                    </span>
+                                    Add New</span>
+                                </button>
+                              </li>
+                            </ul>
+                          </div>
+                        </mat-expansion-panel>
+                      </li>
+                      <li style="margin-bottom: 6px;">
+                        <button type="button" (click)="addNameDialog(null, 'addLayer2', i,'',false,'Assets')">
+                          <span><span class="material-icons img-span"> add </span>
+                            Add New</span>
+                        </button>
+                      </li>
+                    </ul>
+                  </mat-accordion>
+                </div>
+              </mat-expansion-panel>
+            </li>
+            <li class="last-child">
+              <button type="button" (click)="addNameDialog(null, 'addLayer1','','',false,'Assets')">
+                <span><span class="material-icons img-span"> add </span> Add New</span>
+              </button>
+            </li>
+          </ul>
+        </mat-accordion>
+      </div>
+
+      <!-- <div class="wingsearchbox"  *ngIf="isAssestId" >
+        <mat-form-field
+          [floatLabel]="'never'"
+          appearance="none"
+          class="example-full-width">
+          <input
+            type="text"
+            matInput
+            placeholder="AHDJA83293A"
+          />
+        </mat-form-field>
+        <div class="drop-icon">
+          <img src="../../../../assets/images/cheveron-right.svg" alt="">
+        </div>
+        <div class="search-icon">
+          <img src="../../../../assets/images/assets-search.svg" class="img-fluid" alt="">
+        </div>
+      </div> -->
+
+      <div class="wingsearchbox" *ngIf="isAssestId">
+        <form>
+          <mat-form-field class="example-full-width" [floatLabel]="'never'" appearance="none"
+            class="example-full-width">
+            <input type="text" matInput #input [matAutocomplete]="auto1">
+            <mat-autocomplete #auto1="matAutocomplete">
+              <mat-option *ngFor="let option of allTemplates" [value]="option.name" (click)="ClickTemplates(option)">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </form>
+        <!-- <mat-form-field
+          [floatLabel]="'never'"
+          appearance="none"
+          class="example-full-width">
+          <input type="text"  (change)="filterTemplates($event.target.value)"
+          placeholder="Search for Templates"
+          [matAutocomplete]="auto">
+        </mat-form-field>
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let street of allTemplates" [value]="street.name" (click)="ClickTemplates(street)">
+              {{street.name}}
+            </mat-option>
+          </mat-autocomplete> -->
+
+        <!-- <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of allTemplates" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-form-field
+          [floatLabel]="'never'"
+          appearance="none"
+          class="example-full-width">
+          <input type="text"
+          placeholder="Pick one"
+          aria-label="Name"
+          matInput
+          (change)="filterTemplates($event.target.value)"
+          [matAutocomplete]="auto">
+        </mat-form-field> -->
+        <div class="drop-icon">
+          <img src="../../../../assets/images/cheveron-right.svg" alt="">
+        </div>
+        <div class="search-icon">
+          <img src="../../../../assets/images/assets-search.svg" class="img-fluid" alt="">
+        </div>
+      </div>
+
+      <div class="pump-menu" *ngIf="isAssestId">
+        <ul>
+          <li>
+            <a [routerLink]="['general']" routerLinkActive="active">General</a>
+          </li>
+          <li>
+            <a [routerLink]="['attributeform']" routerLinkActive="active">Attributes</a>
+          </li>
+          <li>
+            <a [routerLink]="['procedures']" routerLinkActive="active">Procedures</a>
+          </li>
+          <li>
+            <a [routerLink]="['loto']" routerLinkActive="active">LOTO</a>
+          </li>
+          <li>
+            <a [routerLink]="['ppe']" routerLinkActive="active">PPE</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="officepump-maincontent">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

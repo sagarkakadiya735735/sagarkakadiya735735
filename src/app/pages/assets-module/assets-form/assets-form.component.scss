@@ -1,0 +1,33 @@
+table {
+  width: 100%;
+}
+.last-child {
+  margin-top: 7px;
+}
+.parent-button:after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  border-bottom: 1px solid #d7d7d7;
+  left: -10px;
+  overflow: visible;
+  z-index: -1;
+}
+.mat-expansion-panel-content {
+  overflow: hidden;
+}
+:host::ng-deep .mat-form-field-wrapper {
+  padding: 0;
+}
+
+::ng-deep mat-expansion-panel.mat-expansion-panel.assets {
+  margin-bottom: 6px !important;
+}
+
+// ul, li {
+//   overflow: hidden;
+//   width:auto;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+// }

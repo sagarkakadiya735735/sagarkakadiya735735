@@ -1,0 +1,228 @@
+<div class="template-table template-table2 p-0">
+  <form nz-form [formGroup]="sopForm" id="" class="login-form">
+    <div class="general-box">
+      <div class="Equipment-title">
+        <h5>
+          <span (click)="backClicked()" class="attriarrow"><img src="../../../../assets/images/left-arrow.svg"
+              class="img-fluid" alt="circule" /></span>
+          {{ this.router.url.includes('procedures/add') ? "New Procedures" : "Edit Procedures" }}
+        </h5>
+      </div>
+      <div class="Equipment-contmain">
+        <div class="Equipment-contbox" *ngIf="!this.router.url.includes('procedures/add')">
+          <div class="Equipment-cont">
+            <h5>Procedures Id</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <!-- <mat-label>Equipment Template ID</mat-label> -->
+              <input formControlName="id" readonly type="text" matInput placeholder="AHDJA83293A" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Equipment Section</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <mat-chip-list #equipmentSectionList aria-label="EquipmentSection selection">
+                <mat-chip *ngFor="let mode of val.equipmentSection.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(mode, 'equipmentSection')">
+                  {{mode}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="New Equipment section...." #equipmentSectionInput
+                  [matChipInputFor]="equipmentSectionList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'equipmentSection'); $event.input.value = ''">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Procedure <span style="color:red">*</span></h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="procedure" type="text" matInput placeholder="Ex: Sample procedure" />
+            </mat-form-field>
+            <span *ngIf="isProcedureSubmitted && val?.procedure.errors || val?.procedure?.touched">
+              <mat-error *ngIf="val?.procedure?.errors?.required">
+                Procedure is <strong>required</strong>
+              </mat-error>
+            </span>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Procedure Details</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <textarea matInput formControlName="details" placeholder="Details of JSA"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox atrributselect">
+          <div class="Equipment-cont">
+            <h5>Category <span style="color:red">*</span></h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none">
+              <mat-select appearance="none" formControlName="category" name="category" multiple="false"
+                placeholder="New category...">
+                <mat-option *ngFor="let category of Categories" [value]="category">
+                  {{ category }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <span *ngIf="isProcedureSubmitted && val?.category.errors || val?.procedure?.touched">
+              <mat-error *ngIf="val?.category?.errors?.required">
+                Category is <strong>required</strong>
+              </mat-error>
+            </span>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Notes</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="notes" type="text" matInput placeholder="Some tips, notes, ..." />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Tools</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-chip-list">
+              <mat-chip-list #chipList aria-label="Mode selection">
+                <mat-chip *ngFor="let tool of val.tools.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(tool, 'tools')">
+                  {{tool}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="Tools needed......." #toolInput [matAutocomplete]="autoModes"
+                  [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'tools'); $event.input.value = ''">
+              </mat-chip-list>
+              <mat-autocomplete #autoModes="matAutocomplete" (optionSelected)="selected($event.option.value, 'tools')">
+                <mat-option *ngFor="let gtool of Tools" [value]="gtool">
+                  {{gtool}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Approx Effort in minutes</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="effort" type="text" matInput placeholder="Efforts to complete.." />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Standard Manual, help doc</h5>
+          </div>
+          <div class="Equipment-form Equipment-upload">
+            <div class="upload-input">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="manual" type="text" matInput placeholder="Paste your link here..." />
+              </mat-form-field>
+            </div>
+            <div class="upload-btn">
+              <p>or</p>
+              <div class="upload-file-input">
+                <input type="file" class="upload-file" />
+                <div class="upload-file-input-btn">
+                  <button type="button" mat-button>
+                    <span class="material-icons"> north </span>
+                    Upload
+                  </button>
+                  <p>No File choosen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Standard Photo</h5>
+          </div>
+          <div class="Equipment-form Equipment-upload">
+            <div class="upload-input">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="photo" type="text" matInput placeholder="Paste your link here..." />
+              </mat-form-field>
+            </div>
+            <div class="upload-btn">
+              <p>or</p>
+              <div class="upload-file-input">
+                <input type="file" class="upload-file" />
+                <div class="upload-file-input-btn">
+                  <button type="button" mat-button>
+                    <span class="material-icons"> north </span>
+                    Upload
+                  </button>
+                  <p>No File choosen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Standard Video</h5>
+          </div>
+          <div class="Equipment-form Equipment-upload">
+            <div class="upload-input">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="video" type="text" matInput placeholder="Paste your link here..." />
+              </mat-form-field>
+            </div>
+            <div class="upload-btn">
+              <p>or</p>
+              <div class="upload-file-input">
+                <input type="file" class="upload-file" />
+                <div class="upload-file-input-btn">
+                  <button type="button" mat-button>
+                    <span class="material-icons"> north </span>
+                    Upload
+                  </button>
+                  <p>No File choosen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="general-btnbox">
+      <div class="general-btn">
+        <button mat-button type="submit" (click)="submitForm()">SAVE</button>
+        <!-- <button mat-button type="button">CANCEL</button> -->
+        <button mat-button type="button" (click)="resetForm()">RESET</button>
+
+      </div>
+    </div>
+  </form>
+</div>

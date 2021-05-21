@@ -1,0 +1,23 @@
+::ng-deep .mat-input-underline {
+  display: none;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+::ng-deep
+  .main-wrapper
+  .circle-sidebar
+  .mat-drawer-container
+  .template-box
+  .template-table
+  .general-box
+  .Equipment-contmain
+  .Equipment-contbox
+  .Equipment-form
+  .mat-form-field
+  mat-select
+  .mat-select-arrow {
+  margin-top: 7px !important;
+  margin-right: 13px !important;
+}

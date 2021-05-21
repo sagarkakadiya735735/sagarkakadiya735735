@@ -1,0 +1,61 @@
+{
+      "data":[
+        {
+          "id": "600adb9cb971a7531695f544",
+          "org": null,
+          "orgID": "mega123",
+          "plant": null,
+          "plantID": "megafrisco",
+          "user": null,
+          "userID": null,
+          "Department":[
+            {
+              "name": "Department 1",
+              "sequenceNumber": "1",
+              "status": "ACTIVE",
+              "timestamp": "Fri Jan 22 2021 19:39:21 GMT+0530 (India Standard Time)",
+              "_departmentID": "mega123-megafrisco-floc-1",
+              "Position":[
+                {
+                  "name": "position test",
+                  "sequenceNumber": "1",
+                  "status": "ACTIVE",
+                  "timestamp": null,
+                  "_positionID": "mega123-megafrisco-floc-1-area-1"
+                },
+                {
+                  "name": "Postion test 1",
+                  "sequenceNumber": "2",
+                  "status": "ACTIVE",
+                  "timestamp": null,
+                  "_positionID": "mega123-megafrisco-floc-1-area-1"
+                }
+              ]
+            },
+            {
+              "name": "Department 2",
+              "sequenceNumber": "2",
+              "status": "ACTIVE",
+              "timestamp": "Fri Jan 22 2021 19:39:21 GMT+0530 (India Standard Time)",
+              "_departmentID": "mega123-megafrisco-floc-1",
+              "Position":[
+                {
+                  "name": "organzation position test 1",
+                  "sequenceNumber": "1",
+                  "status": "ACTIVE",
+                  "timestamp": null,
+                  "_positionID": "mega123-megafrisco-floc-1-area-1"
+                },
+                {
+                  "name": "organzation position test 1",
+                  "sequenceNumber": "2",
+                  "status": "ACTIVE",
+                  "timestamp": null,
+                  "_positionID": "mega123-megafrisco-floc-1-area-1"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+}

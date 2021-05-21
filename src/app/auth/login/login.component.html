@@ -1,0 +1,64 @@
+<!-- login page -->
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-xs-12">
+        <div class="main-box">
+          <div class="loginboxes">
+            <div class="logo">
+              <img src="../../../assets/images/logo.png" class="img-fluid" alt="">
+            </div>
+            <div class="login-mainbox">
+              <div class="login-boxtitle">
+                <h2>Welcome to PRIDIKT</h2>
+              </div>
+              <div class="login-boxform">
+                <form nz-form [formGroup]="loginForm" id="loginForm" class="login-form">
+                  <label>Email</label>
+                  <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width"
+                    [ngClass]="{ 'error-border': val?.Email?.invalid && val?.Email?.touched}">
+                    <input type="email" id="email" matInput formControlName="Email" placeholder="Ex. pat@example.com"
+                      autocomplete="disabled" />
+                    <mat-error *ngIf="val?.Email?.errors?.required">Email is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="val?.Email?.errors?.email && !val?.Email?.errors?.required">
+                      Please enter a valid email address
+                    </mat-error>
+                  </mat-form-field>
+
+                  <label>Password</label>
+                  <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width"
+                    [ngClass]="{ 'error-border': val?.Password?.invalid && val?.Password?.touched}">
+                    <input type="password" id="password" matInput formControlName="Password" autocomplete="disabled" />
+                    <mat-error *ngIf="val?.Password?.errors?.required">Password is <strong>required</strong></mat-error>
+                    <mat-error *ngIf="val?.Password?.errors?.minlength && !val?.Password?.errors?.required">
+                      Please input atleast 3 characters
+                    </mat-error>
+                  </mat-form-field>
+
+                  <!-- <mat-form-field class="example-full-width">
+                    <mat-label>Organisation Id</mat-label>
+                    <input type="text" matInput placeholder="Organisation id" />
+                  </mat-form-field>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Plants Id</mat-label>
+                    <input type="text" matInput placeholder="Plants Id" />
+                  </mat-form-field> -->
+                  <div class="d-flex justify-content-between">
+                    <button mat-button type="reset" class="login-btn login-btn2">Reset</button>
+                    <button mat-button type="submit" (click)="submitForm()" color="accent"
+                      class="login-btn">Login</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="signup-cont">
+              <p>Don't have an account? <span><a href=""> Sign Up</a></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

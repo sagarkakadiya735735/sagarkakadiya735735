@@ -1,0 +1,92 @@
+<div class="template-box">
+  <div class="template-header">
+    <div class="template-headertitle">
+      <h5>Org Structure</h5>
+    </div>
+  </div>
+  <div class="officepump-box">
+    <div class="officepump-sidebar">
+      <div class="workers-menu">
+        <mat-accordion>
+          <ul>
+            <li *ngFor="let dept of nestedBar?.department; let i = index;">
+              <a href="javascript:void(0);">
+                <mat-accordion>
+                  <mat-expansion-panel hideToggle [expanded]="i == checkCurrentexpandIndex">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        <span><img src="../../../../assets/images/cheveron.png" class="img-fluid" alt="" /></span>
+                        <span class="title-header" *ngIf="dept?.name.length <= 12"> {{ dept?.name}}</span>
+                        <span class="title-header" *ngIf="dept?.name.length > 12"> {{ dept?.name?.slice(0, 10) +
+                          '..'}}</span>
+                        <span>
+                          <span>
+                            <span class="material-icons" [matMenuTriggerFor]="beforeMenu"
+                              onclick="window.event.cancelBubble = true;"> more_vert
+                            </span>
+                            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                              <button mat-menu-item [disabled]="dept?.position.length > 0"
+                                (click)="addNameDialog(dept?.name, 'addLayer1',i,'',true,'OrgStructure')">Rename</button>
+                            </mat-menu>
+                          </span>
+                        </span>
+
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="workers-menu">
+                      <ul>
+                        <li *ngFor="let position of dept?.position; let j = index;">
+                          <button type="button" class="btn-position" (click)="getPosition(position, i, j)"
+                            [class]="{'active':  (checkActivePositionTabId == position._positionID)}"
+                            [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }"
+                            (click)="departmentChecked(position,  i, j,'')">
+                            <span class="position-span" *ngIf="position?.name.length <= 16"> {{ position?.name}}</span>
+                            <span class="position-span" *ngIf="position?.name.length > 16"> {{ position?.name?.slice(0,
+                              16) + '..'}}</span>
+                            <span>
+                              <span class="material-icons position-span" [matMenuTriggerFor]="beforeMenu"
+                                onclick="window.event.cancelBubble = true;"> more_vert </span>
+                              <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                <button mat-menu-item
+                                  (click)="addNameDialog(position?.name, 'addLayer2',i,j,true,'OrgStructure')">Rename</button>
+                              </mat-menu>
+                            </span>
+                          </button>
+                        </li>
+                        <li>
+                          <button type="button" (click)="addNameDialog(null, 'addLayer2',i,'',false,'OrgStructure')"
+                            style="background-color: #ebeae7 !important;">
+                            <span><span class="material-icons img-span"> add </span> Add New</span>
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </a>
+            </li>
+            <li class="last-child">
+              <button type="button" (click)="addNameDialog(null, 'addLayer1',0,0,false,'OrgStructure')">
+                <span><span class="material-icons img-span"> add </span> Add New</span>
+              </button>
+            </li>
+          </ul>
+        </mat-accordion>
+      </div>
+    </div>
+
+
+    <div class="pump-menu" *ngIf="isDepartmentId">
+      <ul>
+        <li>
+          <a [routerLink]="['position-details']" routerLinkActive="active"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="officepump-maincontent">
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </div>
+</div>

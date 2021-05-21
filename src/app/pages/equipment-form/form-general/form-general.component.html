@@ -1,0 +1,281 @@
+<div class="template-table template-table2 p-0">
+  <form nz-form [formGroup]="generalForm" class="login-form" autocomplete="off">
+    <div class="general-box">
+      <div class="Equipment-title">
+        <h5>{{isTempHeader}}{{isAssetHeader}}</h5>
+      </div>
+      <div class="Equipment-contmain">
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>{{TempId}}{{AssetId}}</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input matInput formControlName="id" readonly placeholder="Id" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>{{TempName}}{{AssetName}}</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input matInput formControlName="equipmentName" placeholder="Enter Name .." />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Description</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="description" type="text" matInput placeholder="Enter Description .." />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Category</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none" >
+              <mat-chip-list #chipModeList aria-label="Fruit selection">
+                <mat-chip *ngFor="let category of val.category.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(category, 'category')">
+                  {{category}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="New category..." #categoryInput [matAutocomplete]="auto" placeholder="New Category ..."
+                  [matChipInputFor]="chipModeList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'category'); $event.input.value = ''">
+              </mat-chip-list>
+              <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event.option.value, 'category')">
+                <mat-option *ngFor="let gcategory of categories" [value]="gcategory">
+                  {{gcategory}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+
+
+            <!-- <mat-chip       formControlName="category"
+            *ngFor="let mode of val.modes.value"
+            [selectable]="false"
+            [removable]="true"
+            (removed)="onToppingRemoved(mode, 'modes')">
+            {{mode}}
+            <mat-icon matChipRemove>highlight_off</mat-icon>
+          </mat-chip>
+          <input
+            placeholder="New Mode..."
+            #modeInput
+            [matAutocomplete]="autoModes"
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            (matChipInputTokenEnd)="selected($event.value, 'modes'); $event.input.value = ''">
+        </mat-chip-list>
+        <mat-autocomplete #autoModes="matAutocomplete" (optionSelected)="selected($event.option.value, 'modes')">
+          <mat-option *ngFor="let gmode of generalModes" [value]="gmode">
+            {{gmode}}
+          </mat-option> -->
+
+
+
+            <!-- <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none" appearance="fill">
+              <mat-select>
+                <mat-select-trigger>
+                  <mat-chip-list>
+                    <mat-chip *ngFor="let category of val.category.value" (removed)="onToppingRemoved(category, 'category')"
+                      [removable]="true">
+                      {{ category }}
+                      <mat-icon matChipRemove>highlight_off</mat-icon>
+                    </mat-chip>
+                  </mat-chip-list>
+                </mat-select-trigger>
+                <mat-option (click)="selected(category, 'category'); $event.stopPropagation();" *ngFor="let category of categories" [value]="category">{{category}}</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Validity</h5>
+          </div>
+          <div class="Equipment-date">
+            <mat-form-field [floatLabel]="'never'" appearance="none" color="accent">
+              <input matInput formControlName="fromDate" [max]="val.toDate.value" placeholder="From"
+                [matDatepicker]="picker1" />
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1 color="primary"></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field [floatLabel]="'never'" appearance="none" color="accent">
+              <input matInput formControlName="toDate" [min]="val.fromDate.value" placeholder="To"
+                [matDatepicker]="picker2" />
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2 color="primary"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="general-box">
+      <div class="Equipment-title">
+        <h5>Manufacturer</h5>
+      </div>
+      <div class="Equipment-contmain">
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Manufacturer</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="manufacturer" type="text" matInput placeholder="Enter Manufacturer ..." />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <!-- <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Asset Install Date</h5>
+          </div>
+          <div class="Equipment-date Equipment-date2">
+            <mat-form-field
+              [floatLabel]="'never'"
+              appearance="none"
+              color="primary"
+              appearance="fill"
+            >
+              <input matInput placeholder="Select" formControlName="assetInstallDate" [matDatepicker]="picker3" />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="picker3"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker3></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div> -->
+
+        <!-- <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Category</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field
+              [floatLabel]="'never'"
+              appearance="none"
+              appearance="fill"
+            >
+              <mat-select
+                appearance="none"
+                formControlName="category"
+                name="food"
+              >
+                <mat-option *ngFor="let category of categories" [value]="category">
+                  {{ category }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div> -->
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Modes</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none">
+              <mat-chip-list #chipList aria-label="Fruit selection">
+                <mat-chip *ngFor="let mode of val.modes.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(mode, 'modes')">
+                  {{mode}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="New Mode..." #modeInput [matAutocomplete]="autoModes" [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'modes'); $event.input.value = ''">
+              </mat-chip-list>
+              <mat-autocomplete #autoModes="matAutocomplete" (optionSelected)="selected($event.option.value, 'modes')">
+                <mat-option *ngFor="let gmode of generalModes" [value]="gmode">
+                  {{gmode}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <!-- <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none" appearance="fill">
+              <mat-select>
+                <mat-select-trigger>
+                  <mat-chip-list>
+                    <mat-chip *ngFor="let mode of val.modes.value" (removed)="onToppingRemoved(mode, 'modes')"
+                      [removable]="true">
+                      {{ mode }}
+                      <mat-icon matChipRemove>highlight_off</mat-icon>
+                    </mat-chip>
+                  </mat-chip-list>
+                </mat-select-trigger>
+                <mat-option attr.id="'general'+{{mode}}" (click)="selected(mode, 'modes', 'general'+mode); $event.stopPropagation();" *ngFor="let mode of generalModes" [value]="mode">{{mode}}</mat-option>
+              </mat-select>
+            </mat-form-field> -->
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Functional Group</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="functionalGroup" type="text" matInput placeholder="Enter Functional Group ..."/>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="general-box">
+      <div class="Equipment-title">
+        <h5>Manual</h5>
+      </div>
+      <div class="Equipment-contmain">
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Add link here</h5>
+          </div>
+          <div class="Equipment-form Equipment-upload">
+            <div class="upload-input">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="manual" type="text" matInput placeholder="Paste your link here..." />
+              </mat-form-field>
+            </div>
+            <div class="upload-btn">
+              <p>or</p>
+              <div class="upload-file-input">
+                <input type="file" class="upload-file" />
+                <div class="upload-file-input-btn">
+                  <button type="button" mat-button>
+                    <span class="material-icons"> north </span>
+                    Upload
+                  </button>
+                  <p>No File choosen</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="general-btnbox">
+      <div class="general-btn">
+        <button mat-button (click)="submitForm()" type="submit">SAVE</button>
+        <button mat-button type="button" (click)="resetForm()">RESET</button>
+      </div>
+    </div>
+  </form>
+</div>

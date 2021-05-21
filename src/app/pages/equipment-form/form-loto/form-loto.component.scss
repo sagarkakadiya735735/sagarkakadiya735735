@@ -1,0 +1,19 @@
+.add-btnbox {
+  position: absolute;
+  display: block;
+  width: fit-content;
+  right: 0;
+  top: -66px;
+}
+
+.lotoType-text {
+  display: block;
+  width: 90%;
+  mat-form-field {
+    display: block;
+    width: 100%;
+    input {
+      height: 38px;
+    }
+  }
+}

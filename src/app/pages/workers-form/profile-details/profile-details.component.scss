@@ -1,0 +1,49 @@
+::ng-deep .mat-input-underline {
+  display: none;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}
+
+.profile-detail-form {
+  width: 15% !important;
+}
+
+.permit-address mat-form-field {
+  width: 32.5% !important;
+}
+.mat-filed {
+  width: 32.5%;
+  mat-form-field {
+    width: 100% !important;
+  }
+}
+.permit-address {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+::ng-deep .mat-form-field-infix {
+  height: 46px !important;
+}
+.permit-address.country-code {
+  justify-content: flex-start;
+}
+.permit-address.country-code mat-form-field {
+  margin-right: 13px;
+  width: 25% !important;
+}
+.country-block {
+  display: block;
+  width: 66%;
+}
+.country-block mat-form-field {
+  width: 100% !important;
+}
+
+:host::ng-deep .country-block .mat-form-field-prefix {
+  width: 50px;
+  text-align: center;
+  font-weight: 600;
+}

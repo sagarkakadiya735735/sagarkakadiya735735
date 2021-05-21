@@ -1,0 +1,59 @@
+<div class="template-table template-table2 p-0">
+  <div class="general-box">
+    <div class="Equipment-title">
+      <h5>API URL</h5>
+    </div>
+    <div class="Equipment-contmain">
+      <form nz-form [formGroup]="loginForm" id="" class="login-form">
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Direct Access Equipment Template URL</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field
+              [floatLabel]="'never'"
+              appearance="none"
+              class="example-full-width"
+            >
+              <!-- <mat-label>Equipment Template ID</mat-label> -->
+              <input
+                formControlName="select"
+                type="text"
+                matInput
+                placeholder="https://pridikt.com/asset/template/view/123"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Equipment template API</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field
+              [floatLabel]="'never'"
+              appearance="none"
+              class="example-full-width"
+            >
+              <!-- <mat-label>Equipment Template ID</mat-label> -->
+              <input
+                formControlName="select"
+                type="text"
+                matInput
+                placeholder="https://api.pridikt.com/asset/template/123"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="general-btnbox">
+    <div class="general-btn">
+      <button mat-button type="button">SAVE</button>
+      <button mat-button type="button">CANCEL</button>
+    </div>
+  </div>
+</div>

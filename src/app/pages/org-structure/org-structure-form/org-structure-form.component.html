@@ -1,0 +1,44 @@
+<div class="wingsearchbox" *ngIf="isDepartmentId">
+  <!-- <mat-form-field
+    [floatLabel]="'never'"
+    appearance="none"
+    class="example-full-width">
+    <input type="text"  (change)="filterTemplates($event.target.value)"
+    placeholder="Search for Templates"
+    [matAutocomplete]="auto">
+  </mat-form-field>
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let street of allTemplates" [value]="street.name" (click)="ClickTemplates(street)">
+        {{street.name}}
+      </mat-option>
+    </mat-autocomplete> -->
+
+  <!-- <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of allTemplates" [value]="option">
+      {{option}}
+    </mat-option>
+  </mat-autocomplete>
+  <mat-form-field
+    [floatLabel]="'never'"
+    appearance="none"
+    class="example-full-width">
+    <input type="text"
+    placeholder="Pick one"
+    aria-label="Name"
+    matInput
+    (change)="filterTemplates($event.target.value)"
+    [matAutocomplete]="auto">
+  </mat-form-field> -->
+
+</div>
+
+<div class="pump-menu" *ngIf="isDepartmentId">
+  <ul>
+    <li>
+      <a [routerLink]="['position-details']" routerLinkActive="active">PositionDetails</a>
+    </li>
+  </ul>
+</div>
+<div class="officepump-maincontent">
+  <router-outlet></router-outlet>
+</div>

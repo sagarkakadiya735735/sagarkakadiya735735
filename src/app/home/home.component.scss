@@ -1,0 +1,118 @@
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+/* -------------------------------------
+login page
+------------------------------------- */
+
+.login-logo {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.hero-login-header {
+  position: relative;
+  display: block;
+  width: 100%;
+  background: #424a52;
+  padding: 16px 0;
+}
+.login-logo h5 {
+  font-size: 14px;
+  line-height: 17px;
+  text-align: right;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-family: circular-medium;
+}
+.main-box {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.login-boxtitle h2 {
+  font-size: 32px;
+  line-height: 45px;
+  letter-spacing: 0.5px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-family: circular-bold;
+  color: #282d30;
+}
+.login-mainbox {
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px #00000005;
+  border-radius: 5px;
+  min-height: 300px;
+  padding: 30px;
+}
+.login-boxform {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.login-boxform mat-form-field {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.login-btn {
+  position: relative;
+  display: block;
+  width: fit-content;
+  background-color: #424a52 !important;
+  color: #fff;
+  font-family: circular-book;
+  letter-spacing: 0.5px;
+  transition: 0.5s all ease;
+}
+.login-btn2 {
+  background-color: #e60c2e !important;
+}
+/* Change the white to any color ;) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+// .form {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   -ms-transform: translateX(-50%) translateY(-75%);
+//   -webkit-transform: translate(-50%, -75%);
+//   transform: translate(-50%, -75%);
+// }
+
+// .form-container {
+//   position: relative;
+// }
+
+// .form-control {
+//   height: auto;
+// }
+
+button.log-btn {
+  background-color: #ffffff !important;
+  color: #a0a5ba;
+  transition: 0.5s all ease;
+}
+button.log-btn:hover {
+  background-color: #e60c2e !important;
+    color: #ffffff;
+    transition: 0.5s all ease;
+}
+

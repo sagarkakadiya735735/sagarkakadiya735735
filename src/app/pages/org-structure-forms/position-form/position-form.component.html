@@ -1,0 +1,89 @@
+<div class="officepump-maincontent">
+  <div class="template-table template-table2 p-0">
+    <div class="general-box">
+      <div class="Equipment-title">
+        <h5>Position Details</h5>
+      </div>
+      <div class="Equipment-contmain">
+        <form nz-form [formGroup]="positionForm" id="" class="login-form">
+          <div class="Equipment-contbox">
+            <div class="Equipment-cont">
+              <h5>Position ID</h5>
+            </div>
+            <div class="Equipment-form">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <!-- <mat-label>Equipment Template ID</mat-label> -->
+                <input formControlName="_positionID" type="text" matInput placeholder="AHDJA83293A" readonly="true"
+                  disabled="true" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="Equipment-contbox">
+            <div class="Equipment-cont">
+              <h5>Position Title</h5>
+            </div>
+            <div class="Equipment-form">
+              <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+                <input formControlName="title" type="text" matInput placeholder="Position Title"
+                  autocomplete="disabled" />
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="Equipment-contbox atrributselect">
+            <div class="Equipment-cont">
+              <h5>Assigned To</h5>
+            </div>
+            <div class="Equipment-form">
+              <mat-form-field [floatLabel]="'never'" appearance="none" appearance="fill">
+                <mat-select appearance="none" formControlName="assignedWorker" name="food" multiple="false">
+                  <mat-option *ngFor="let item of workerData" [value]="item.name">
+                    {{ item.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="Equipment-contbox atrributselect">
+            <div class="Equipment-cont">
+              <h5>Shift</h5>
+            </div>
+            <div class="Equipment-form">
+              <mat-form-field [floatLabel]="'never'" appearance="none" appearance="fill">
+                <mat-select appearance="none" formControlName="shift" name="food" multiple="false">
+                  <mat-option *ngFor="let shiftItem of ShiftData" [value]="shiftItem.value">
+                    {{ shiftItem.label }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="Equipment-contbox atrributselect">
+            <div class="Equipment-cont">
+              <h5>Active</h5>
+            </div>
+            <div class="Equipment-form">
+              <mat-form-field [floatLabel]="'never'" appearance="none" appearance="fill">
+                <mat-select appearance="none" formControlName="status" name="food" multiple="false">
+                  <mat-option *ngFor="let status of Status" [value]="status.value">
+                    {{ status.label }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="general-btnbox">
+      <div class="general-btn">
+        <button mat-button type="button" class="cursor-pointer" (click)="savePositionFormData()">SAVE</button>
+        <button mat-button type="button" class="cursor-pointer">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>

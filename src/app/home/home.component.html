@@ -1,0 +1,263 @@
+<section class="main-wrapper">
+  <!-- header -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-sm-12 col-xs-12 p-0">
+        <div class="circle-sidebar">
+          <mat-drawer-container class="example-container" autosize>
+            <mat-drawer opened #drawer
+              class="mat-drawer example-sidenav mat-drawer-opened ng-tns-c33-0 ng-trigger ng-trigger-transform mat-drawer-side ng-star-inserted"
+              mode="side">
+              <div class="sidebar-contbox">
+                <div class="sidebar-logobox">
+                  <div class="sidebar-logo">
+                    <a href="javascript:void(0);">
+                      <img src="assets/images/logo.png" class="img-fluid" alt="" style="width: 145px;" />
+                    </a>
+                  </div>
+                  <!-- <div class="entry-btn">
+                    <button mat-button (click)="openDialog()">
+                      <span
+                        ><img
+                          src="../../assets/images/plus.svg"
+                          class="img-fluid"
+                          alt=""
+                      /></span>
+                      Add New Entry
+                    </button>
+                  </div> -->
+                </div>
+
+                <div class="sidebar-menu">
+                  <ul>
+                    <li>
+                      <a [routerLink]="['dashboard']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="13.978" height="16" viewBox="0 0 13.978 16">
+                            <defs></defs>
+                            <g transform="translate(0 -0.114)">
+                              <path class="a"
+                                d="M12.98,16a.943.943,0,0,0,1-1V6.016a.908.908,0,0,0-.4-.8L7.588.225a1.05,1.05,0,0,0-1.3,0L.3,5.217a1.134,1.134,0,0,0-.3.8V15a.943.943,0,0,0,1,1H4.992V11.008H8.986V16Z"
+                                transform="translate(0 0.114)" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Dashboard</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['equipment']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                            <defs></defs>
+                            <g class="a">
+                              <path class="b"
+                                d="M9.571,15a1,1,0,0,1-1-1V9.571a1,1,0,0,1,1-1H14a1,1,0,0,1,1,1V14a1,1,0,0,1-1,1ZM1,15a1,1,0,0,1-1-1V9.571a1,1,0,0,1,1-1H5.429a1,1,0,0,1,1,1V14a1,1,0,0,1-1,1ZM9.571,6.429a1,1,0,0,1-1-1V1a1,1,0,0,1,1-1H14a1,1,0,0,1,1,1V5.429a1,1,0,0,1-1,1ZM1,6.429a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0H5.429a1,1,0,0,1,1,1V5.429a1,1,0,0,1-1,1Z" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Equipment Templates</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['assets']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18.599" height="18.461"
+                            viewBox="0 0 18.599 18.461">
+                            <defs></defs>
+                            <g class="a" transform="translate(0 -0.178)">
+                              <path class="b"
+                                d="M10.1,1.489,1.581.2A1.373,1.373,0,0,0,.48.5,1.386,1.386,0,0,0,0,1.536V17.864a.777.777,0,0,0,.775.775H3.294V14.571A1.353,1.353,0,0,1,4.65,13.214H6.587a1.353,1.353,0,0,1,1.356,1.356v4.069h3.294V2.83A1.357,1.357,0,0,0,10.1,1.489ZM4.262,11.471H3.1a.581.581,0,0,1,0-1.162H4.262a.581.581,0,1,1,0,1.162Zm0-2.325H3.1a.581.581,0,0,1,0-1.162H4.262a.581.581,0,1,1,0,1.162Zm0-2.325H3.1a.581.581,0,1,1,0-1.162H4.262a.581.581,0,1,1,0,1.162Zm0-2.325H3.1a.581.581,0,0,1,0-1.162H4.262a.581.581,0,1,1,0,1.162Zm3.875,6.975H6.975a.581.581,0,1,1,0-1.162H8.137a.581.581,0,0,1,0,1.162Zm0-2.325H6.975a.581.581,0,1,1,0-1.162H8.137a.581.581,0,0,1,0,1.162Zm0-2.325H6.975a.581.581,0,1,1,0-1.162H8.137a.581.581,0,0,1,0,1.162Zm0-2.325H6.975a.581.581,0,1,1,0-1.162H8.137a.581.581,0,0,1,0,1.162Z"
+                                transform="translate(0 0)" />
+                              <path class="b"
+                                d="M21.018,10.506,15.5,9.351V20.7h5.231a1.358,1.358,0,0,0,1.356-1.356V11.832A1.35,1.35,0,0,0,21.018,10.506Zm-1.837,7.872H18.019a.581.581,0,0,1,0-1.162h1.162a.581.581,0,1,1,0,1.162Zm0-2.325H18.019a.581.581,0,0,1,0-1.162h1.162a.581.581,0,1,1,0,1.162Zm0-2.325H18.019a.581.581,0,0,1,0-1.162h1.162a.581.581,0,1,1,0,1.162Z"
+                                transform="translate(-3.488 -2.064)" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Assets</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['workers']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16.034" viewBox="0 0 16 16.034">
+                            <defs></defs>
+                            <g class="a" transform="translate(0 -0.966)">
+                              <path class="b"
+                                d="M10.2,9.4l-2.7-2A3.646,3.646,0,0,0,9,4.5V3.7A3.622,3.622,0,0,0,5.7,0,3.525,3.525,0,0,0,2,3.5v1A3.646,3.646,0,0,0,3.5,7.4L.8,9.5A2.088,2.088,0,0,0,0,11.1V13a.945.945,0,0,0,1,1h9a.945.945,0,0,0,1-1V11A2.088,2.088,0,0,0,10.2,9.4Z"
+                                transform="translate(0 2.996)" />
+                              <path class="b"
+                                d="M5.9,6.434l-1.8-1.2a2.413,2.413,0,0,0,.7-1.7v-.9A2.677,2.677,0,0,0,2.7.034,2.616,2.616,0,0,0,0,1.434a5.366,5.366,0,0,1,1.8,4v1a5.135,5.135,0,0,1-.6,2.5,10.592,10.592,0,0,1,1.2,1H5.8a.945.945,0,0,0,1-1v-.8A1.965,1.965,0,0,0,5.9,6.434Z"
+                                transform="translate(9.2 0.966)" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Workers</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['orgstructure']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16.034" viewBox="0 0 16 16.034">
+                            <defs></defs>
+                            <g class="a" transform="translate(0 -0.966)">
+                              <path class="b"
+                                d="M10.2,9.4l-2.7-2A3.646,3.646,0,0,0,9,4.5V3.7A3.622,3.622,0,0,0,5.7,0,3.525,3.525,0,0,0,2,3.5v1A3.646,3.646,0,0,0,3.5,7.4L.8,9.5A2.088,2.088,0,0,0,0,11.1V13a.945.945,0,0,0,1,1h9a.945.945,0,0,0,1-1V11A2.088,2.088,0,0,0,10.2,9.4Z"
+                                transform="translate(0 2.996)" />
+                              <path class="b"
+                                d="M5.9,6.434l-1.8-1.2a2.413,2.413,0,0,0,.7-1.7v-.9A2.677,2.677,0,0,0,2.7.034,2.616,2.616,0,0,0,0,1.434a5.366,5.366,0,0,1,1.8,4v1a5.135,5.135,0,0,1-.6,2.5,10.592,10.592,0,0,1,1.2,1H5.8a.945.945,0,0,0,1-1v-.8A1.965,1.965,0,0,0,5.9,6.434Z"
+                                transform="translate(9.2 0.966)" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Org Structure</span>
+                      </a>
+                    </li>
+
+
+
+                    <li>
+                      <a [routerLink]="['designer']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="12.176" height="15" viewBox="0 0 12.176 15">
+                            <defs></defs>
+                            <g class="a" transform="translate(-0.006)">
+                              <path class="b"
+                                d="M1.616,15A1.619,1.619,0,0,1,0,13.384V1.616A1.619,1.619,0,0,1,1.616,0H7.531V3.029A1.619,1.619,0,0,0,9.148,4.645h3.029v8.739A1.619,1.619,0,0,1,10.56,15Zm4.032-2.323a.44.44,0,0,0,.439.44H9.853a.44.44,0,1,0,0-.879H6.088A.44.44,0,0,0,5.648,12.677ZM1.883,10.795v1.883a.44.44,0,0,0,.439.44H4.2a.44.44,0,0,0,.44-.44V10.795a.44.44,0,0,0-.44-.439H2.322A.44.44,0,0,0,1.883,10.795Zm3.766,0a.44.44,0,0,0,.439.44H7.97a.44.44,0,1,0,0-.879H6.088A.44.44,0,0,0,5.648,10.795Zm0-1.883a.44.44,0,0,0,.439.44H9.853a.44.44,0,1,0,0-.879H6.088A.44.44,0,0,0,5.648,8.912ZM1.883,7.029V8.912a.44.44,0,0,0,.439.44H4.2a.44.44,0,0,0,.44-.44V7.029A.44.44,0,0,0,4.2,6.59H2.322A.44.44,0,0,0,1.883,7.029Zm3.766,0a.44.44,0,0,0,.439.44H7.97a.44.44,0,1,0,0-.879H6.088A.44.44,0,0,0,5.648,7.029ZM1.883,4.675a.44.44,0,0,0,.439.44H6.088a.44.44,0,1,0,0-.879H2.322A.44.44,0,0,0,1.883,4.675Zm0-1.883a.44.44,0,0,0,.439.44H4.675a.44.44,0,1,0,0-.879H2.322A.44.44,0,0,0,1.883,2.793Zm.879,9.446v-1h1v1Zm0-3.766v-1h1v1ZM9.148,3.766a.737.737,0,0,1-.737-.737V.257l3.508,3.508Z"
+                                transform="translate(0.006)" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Form Designer</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['scheduler']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                            <defs></defs>
+                            <g class="a">
+                              <path class="b"
+                                d="M7.5,15A7.5,7.5,0,1,1,15,7.5,7.509,7.509,0,0,1,7.5,15Zm0-11.876a.626.626,0,0,0-.625.625V7.813a.629.629,0,0,0,.183.442l3.126,3.125a.625.625,0,0,0,.884-.884L8.125,7.554V3.75A.626.626,0,0,0,7.5,3.125Z" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Scheduler</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['monitoring']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15.557" height="12.527"
+                            viewBox="0 0 15.557 12.527">
+                            <defs></defs>
+                            <g class="a" transform="translate(0 -39.184)">
+                              <g transform="translate(0 39.184)">
+                                <g transform="translate(0 0)">
+                                  <path class="b" d="M121.557,316.082l-1.394,1.818h6.445l-1.394-1.818Z"
+                                    transform="translate(-115.516 -305.374)" />
+                                  <path class="b"
+                                    d="M14.345,39.184H1.212A1.212,1.212,0,0,0,0,40.4v7.476a1.212,1.212,0,0,0,1.212,1.212H14.345a1.212,1.212,0,0,0,1.212-1.212V40.4A1.212,1.212,0,0,0,14.345,39.184Z"
+                                    transform="translate(0 -39.184)" />
+                                </g>
+                              </g>
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Monitoring</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a [routerLink]="['settings']" [routerLinkActive]="'active'">
+                        <span class="menu-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+                            <defs></defs>
+                            <g class="a">
+                              <path class="b"
+                                d="M7.97,15H7.029a1.383,1.383,0,0,1-1.381-1.382V13.3a6.066,6.066,0,0,1-.941-.391l-.226.226a1.381,1.381,0,0,1-1.953,0l-.665-.665a1.381,1.381,0,0,1,0-1.953l.226-.226a6.048,6.048,0,0,1-.391-.94H1.381A1.383,1.383,0,0,1,0,7.97V7.029A1.382,1.382,0,0,1,1.381,5.648H1.7a6.067,6.067,0,0,1,.391-.941l-.226-.226a1.381,1.381,0,0,1,0-1.953l.666-.665a1.381,1.381,0,0,1,1.953,0l.225.226A6.067,6.067,0,0,1,5.648,1.7V1.381A1.382,1.382,0,0,1,7.029,0H7.97A1.383,1.383,0,0,1,9.352,1.381V1.7a6.047,6.047,0,0,1,.94.391l.226-.226a1.38,1.38,0,0,1,1.953,0l.666.666a1.38,1.38,0,0,1,0,1.953l-.225.225a6.067,6.067,0,0,1,.391.941h.318A1.383,1.383,0,0,1,15,7.029V7.97a1.383,1.383,0,0,1-1.382,1.381H13.3a6.047,6.047,0,0,1-.391.94l.226.226a1.381,1.381,0,0,1,0,1.953l-.665.666a1.381,1.381,0,0,1-1.953,0l-.226-.225a6.048,6.048,0,0,1-.94.391v.318A1.383,1.383,0,0,1,7.97,15ZM7.5,4.236A3.264,3.264,0,1,0,10.764,7.5,3.267,3.267,0,0,0,7.5,4.236Z"
+                                transform="translate(0 0)" />
+                            </g>
+                          </svg>
+                        </span>
+                        <span>Settings</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </mat-drawer>
+
+            <header>
+              <div class="header-nav">
+                <div class="hide-menu">
+                  <button type="button" mat-button (click)="drawer.toggle()">
+                    <span><img src="assets/images/hide-menu.svg" class="img-fluid" alt="" /></span>
+                    {{ drawer.opened ? 'Hide' : 'Show'}} menu
+                  </button>
+                </div>
+                <div class="header-menu">
+                  <ul>
+                    <li>
+                      <a [routerLink]="['equipment']" [routerLinkActive]="'active'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                          <defs></defs>
+                          <path class="a" d="M4,0H0A2.006,2.006,0,0,0,2,2,2.006,2.006,0,0,0,4,0Z"
+                            transform="translate(6 14)" />
+                          <path class="a"
+                            d="M15,11h-.5A4.351,4.351,0,0,1,13,8V5A4.951,4.951,0,0,0,8,0,4.951,4.951,0,0,0,3,5V8a4.351,4.351,0,0,1-1.5,3H1a1,1,0,0,0,0,2H15a1,1,0,0,0,0-2Z" />
+                        </svg>
+                      </a>
+                    </li>
+                    <li>
+                      <a [routerLinkActive]="'active'" [matMenuTriggerFor]="beforeMenu">
+                        {{ userData['name'] }}
+                        <span class="profile-icon">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330"
+                            style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                            <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                            c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                            s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                          </svg>
+                        </span>
+                      </a>
+                      <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <button mat-menu-item class="log-btn">Profile</button>
+                        <button (click)="onLogoutClick()" mat-menu-item class="log-btn">Logout</button>
+                      </mat-menu>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </header>
+            <!-- other component's routes -->
+            <router-outlet></router-outlet>
+          </mat-drawer-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

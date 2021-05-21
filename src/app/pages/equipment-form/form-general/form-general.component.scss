@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+}
+::ng-deep .mat-input-underline {
+  display: none;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}

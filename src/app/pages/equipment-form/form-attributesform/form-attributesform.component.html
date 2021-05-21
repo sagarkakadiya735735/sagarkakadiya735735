@@ -1,0 +1,186 @@
+<div class="template-table template-table2 p-0">
+  <form nz-form [formGroup]="tagForm" class="login-form" autocomplete="off">
+    <div class="general-box">
+      <div class="Equipment-title">
+        <h5>
+          <span (click)="backClicked()" class="attriarrow"><img src="../../../../assets/images/left-arrow.svg"
+              class="img-fluid" alt="circule" /></span>
+          {{ this.router.url.includes('attributeform/add') ? "New Attribute" : "Edit Attribute" }}
+        </h5>
+      </div>
+      <div class="Equipment-contmain">
+        <div class="Equipment-contbox" *ngIf="!this.router.url.includes('attributeform/add')">
+          <div class="Equipment-cont">
+            <h5>Attribute ID</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="id" readonly type="text" matInput placeholder="AHDJA83293A" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Tag Name <span style="color:red">*</span></h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-chip-list">
+              <input formControlName="hashTags" type="text" matInput placeholder="Enter Tag Name" required />
+            </mat-form-field>
+            <mat-error *ngIf="val?.hashTags?.touched && val?.hashTags?.errors?.required">
+              Tag name is <strong>required</strong>
+            </mat-error>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Description</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="description" type="text" matInput placeholder="Enter Description" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Modes</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none">
+              <mat-chip-list #chipList aria-label="Mode selection">
+                <mat-chip *ngFor="let mode of val.modes.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(mode, 'modes')">
+                  {{mode}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="New Mode..." #modeInput [matAutocomplete]="autoModes" [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'modes'); $event.input.value = ''">
+              </mat-chip-list>
+              <mat-autocomplete #autoModes="matAutocomplete" (optionSelected)="selected($event.option.value, 'modes')">
+                <mat-option *ngFor="let gmode of Tags" [value]="gmode">
+                  {{gmode}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Category</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field class="example-chip-list" [floatLabel]="'never'" appearance="none">
+              <mat-chip-list #chipModeList aria-label="Category selection">
+                <mat-chip *ngFor="let category of val.category.value" [selectable]="false" [removable]="true"
+                  (removed)="onToppingRemoved(category, 'category')">
+                  {{category}}
+                  <mat-icon matChipRemove>highlight_off</mat-icon>
+                </mat-chip>
+                <input placeholder="New Category..." #categoryInput [matAutocomplete]="autoCate"
+                  [matChipInputFor]="chipModeList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                  (matChipInputTokenEnd)="selected($event.value, 'category'); $event.input.value = ''">
+              </mat-chip-list>
+              <mat-autocomplete #autoCate="matAutocomplete"
+                (optionSelected)="selected($event.option.value, 'category')">
+                <mat-option *ngFor="let gcategory of Categories" [value]="gcategory">
+                  {{gcategory}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Validity</h5>
+          </div>
+          <div class="Equipment-date">
+            <mat-form-field [floatLabel]="'never'" appearance="none" color="accent">
+              <input matInput placeholder="From" formControlName="fromDate" [max]="val.toDate.value"
+                [matDatepicker]="picker4" />
+              <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+              <mat-datepicker #picker4></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field [floatLabel]="'never'" appearance="none" color="accent">
+              <input matInput placeholder="To" formControlName="toDate" [min]="val.fromDate.value"
+                [matDatepicker]="picker5" />
+              <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+              <mat-datepicker #picker5 color="primary"></mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>UOM</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="uom" type="text" matInput placeholder="Enter UOM ..." />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox">
+          <div class="Equipment-cont">
+            <h5>Input type</h5>
+          </div>
+          <div class="Equipment-form">
+            <mat-form-field [floatLabel]="'never'" appearance="none" class="example-full-width">
+              <input formControlName="inputType" type="text" matInput matInput placeholder="Enter Input Type" />
+            </mat-form-field>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox atrributselect">
+          <div class="Equipment-cont">
+            <h5>Range</h5>
+          </div>
+          <div class="Equipment-form Equipment-upload">
+            <div class="upload-input">
+              <mat-form-field [floatLabel]="'never'" appearance="none">
+                <input formControlName="rangeLo" type="text" matInput placeholder="Lo" />
+              </mat-form-field>
+            </div>
+            <div class="upload-btn">
+              <mat-form-field [floatLabel]="'never'" appearance="none">
+                <input formControlName="rangeHigh" type="text" matInput placeholder="High" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+
+        <div class="Equipment-contbox atrributselect">
+          <div class="Equipment-cont"></div>
+          <div class="Equipment-form Equipment-upload">
+            <div class="upload-input">
+              <mat-form-field [floatLabel]="'never'" appearance="none">
+                <input formControlName="rangeLoLo" type="text" matInput placeholder="LoLo" />
+              </mat-form-field>
+            </div>
+            <div class="upload-btn">
+              <mat-form-field [floatLabel]="'never'" appearance="none">
+                <input formControlName="rangeHighHigh" type="text" matInput placeholder="HighHigh" />
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="general-btnbox">
+      <div class="general-btn">
+        <button mat-button (click)="submitForm()" type="button">SAVE</button>
+        <!-- <button mat-button type="button" >CANCEL</button> -->
+        <button mat-button type="button" (click)="resetForm()">RESET</button>
+      </div>
+    </div>
+  </form>
+</div>
